@@ -28,13 +28,18 @@ if tip == "si":
     mount_tip = int(input("Ingresa el monto de propina que deseas dejar"))
     if mount_tip > 0 and mount_tip < 100:
         total_tip = mount_tip / 100
+
+
+        client_card = input("¿Tiene tarjeta de cliente frecuente? (si, no)").lower()
+        if client_card == "si":
+            discount_client_card = total_list * C_CARD
+            iva_mount = total_list * IVA
+            total = total_list - discount_client_card + iva_mount - total_tip
+
+            print("\nTotales calculados")
+            print(f"- Subtotal:{total_list} \n - IVA: {iva_mount} \n - Propina: {total_tip} \n - Descuento: {discount_client_card} \n Total: {total}")
+        elif client_card == "no":
+
     else:
         print("Ingresa un dato válido.")
 elif tip == "no":
-    client_card = input("¿Tiene tarjeta de cliente frecuente? (si, no)").lower()
-    if client_card == "si":
-        discount_client_card = total_list * C_CARD
-
-    elif client_card == "no":
-
-
