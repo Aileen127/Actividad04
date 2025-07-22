@@ -19,7 +19,7 @@ if weight > 5 and urgency == "si" and size_package == "grande":
     print(f"Teniendo un total de {total}")
 # Urgente, paquete no grande y  más de 5 kg o menos de 5kg
 elif weight > 5 and urgency == "si" and size_package == "pequeño" or size_package == "mediano":
-    total = weight + URGENT + mount
+    total = URGENT + mount
     print("\n Cálculo total:")
     print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Tiene un monto extra de urgencia de Q50")
     print(f"Teniendo un total de {total}")
@@ -34,6 +34,12 @@ elif weight < 5 and urgency == "no" and size_package == "grande":
     total = mount + BIG
     print("\n Cálculo total:")
     print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Tiene un monto extra por tamaño de paquete de Q30")
+    print(f"Teniendo un total de {total}")
+# No urgente, paquete no grande, más de 5 kg
+elif weight > 5 and urgency == "no" and size_package == "pequeño" or size_package == "mediano":
+    total = mount
+    print("\n Cálculo total:")
+    print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km")
     print(f"Teniendo un total de {total}")
 else:
     print("Datos ingresados incorrectamente")
