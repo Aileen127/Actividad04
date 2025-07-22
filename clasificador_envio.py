@@ -5,24 +5,35 @@ distance = float(input("Ingrese la distancia en km: "))
 urgency = input("¿El envió es urgente? (si, no): ").lower()
 size_package = input("Ingresa el tamaño del paquete (pequeño, mediano, grande): ").lower()
 
-#Definición constantes
+#Definición constantes y variables
 URGENT = 50
 BIG = 30
 DISCOUNT = 20
-MOUNT = 25
+mount = weight + distance / 2
 
-#Urgente, paquete grande y de más 5 kg
+#Urgente, paquete grande y de más 5 kg o menos de 5 kg
 if weight > 5 and urgency == "si" and size_package == "grande":
-    total = weight + URGENT + BIG + MOUNT
+    total = mount + URGENT + BIG
     print("\n Cálculo total:")
     print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Tiene un monto extra de urgencia de Q50 y por tamaño de paquete de Q30 ")
     print(f"Teniendo un total de {total}")
-# Urgente, paquete no grande y  más de 5 kg
+# Urgente, paquete no grande y  más de 5 kg o menos de 5kg
 elif weight > 5 and urgency == "si" and size_package == "pequeño" or size_package == "mediano":
-    total = weight + URGENT + MOUNT
+    total = weight + URGENT + mount
     print("\n Cálculo total:")
     print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Tiene un monto extra de urgencia de Q50")
     print(f"Teniendo un total de {total}")
-# Urgente, paquete no grande, menos de 5 kg
-
-
+# No urgente, paquete no grande, menos de 5 kg
+elif weight < 5 and urgency == "no" and size_package == "pequeño" or size_package == "mediano":
+    total = mount - DISCOUNT
+    print("\n Cálculo total:")
+    print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Con un descuento de Q20")
+    print(f"Teniendo un total de {total}")
+# No urgente, paquete grande, menos de 5 kg
+elif weight < 5 and urgency == "no" and size_package == "grande":
+    total = mount + BIG
+    print("\n Cálculo total:")
+    print(f"El paquete de peso {weight} kg que necesita recorrer una distancia de {distance} km \n Tiene un monto extra por tamaño de paquete de Q30")
+    print(f"Teniendo un total de {total}")
+else:
+    print("Datos ingresados incorrectamente")
