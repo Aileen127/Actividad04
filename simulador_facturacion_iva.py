@@ -19,6 +19,22 @@ while True:
     if add_more == "no":
         break
 
+# Preguntas especificas
+total_list = sum(products)
+C_CARD = 0.10
+IVA = 0.12
+tip = input("¿Desea dejar propina? (si, no)").lower()
+if tip == "si":
+    mount_tip = int(input("Ingresa el monto de propina que deseas dejar"))
+    if mount_tip > 0 and mount_tip < 100:
+        total_tip = mount_tip / 100
+    else:
+        print("Ingresa un dato válido.")
+elif tip == "no":
+    client_card = input("¿Tiene tarjeta de cliente frecuente? (si, no)").lower()
+    if client_card == "si":
+        discount_client_card = total_list * C_CARD
 
+    elif client_card == "no":
 
 
