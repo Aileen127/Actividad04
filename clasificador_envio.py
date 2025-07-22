@@ -9,7 +9,9 @@ size_package = input("Ingresa el tamaño del paquete (pequeño, mediano, grande)
 URGENT = 50
 BIG = 30
 DISCOUNT = 20
-mount = weight + distance / 2
+mount = 25
+if distance > 150:
+    mount = 35
 
 #Urgente, paquete grande y de más 5 kg o menos de 5 kg
 if weight > 5 and urgency == "si" and size_package == "grande":
